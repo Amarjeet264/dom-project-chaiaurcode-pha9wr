@@ -15,12 +15,14 @@ let numguess=1;
 let playgame=true;
 
 if(playgame){
-  submit.addEventListener('click',function(e){
-    e.preventDefault();
-    const guess=parseInt(userinput.value);
-    // console.log(guess);
-    validateguess(guess);
-  })
+  // window.onload=function(){
+    submit.addEventListener('click',function(e){
+      e.preventDefault();
+      const guess=parseInt(userinput.value);
+      // console.log(guess);
+      validateguess(guess);
+    })
+  // }
 }
 function validateguess(guess){
   if(isNaN(guess)||guess<1||guess>100){
@@ -73,16 +75,18 @@ function endgame(){
 }
 function newgame(){
   const newgamebutton=document.querySelector('#newgame')
-  newgamebutton.addEventListener('click',function(e){
-    randomnum=parseInt(Math.random()*100+1);
-    prevguess=[];
-    numguess=1;
-    guessslot.innerHTML='';
-    remaining.innerHTML=`${11-numguess}`
-    userinput.removeAttribute('disabled');
-    startover.removeChild(p);
-    playgame=true;
-  })
+  window.onload=function(){
+    newgamebutton.addEventListener('click',function(e){
+      randomnum=parseInt(Math.random()*100+1);
+      prevguess=[];
+      numguess=1;
+      guessslot.innerHTML='';
+      remaining.innerHTML=`${11-numguess}`
+      userinput.removeAttribute('disabled');
+      startover.removeChild(p);
+      playgame=true;
+    })
+  }
 }
 
 
